@@ -31,16 +31,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-//app.use(
-//  session({
- //  secret: SESSION_SECRET,
-//   authRequired: false,
-//  resave: false,
-//    saveUninitialized: true,
-//  })
-//);
+app.use(
+  session({
+   secret: SESSION_SECRET,
+   authRequired: false,
+  resave: false,
+    saveUninitialized: true,
+  })
+);
 
-// 👉 Replace this with auth middleware 👈
+ 👉 Replace this with auth middleware 👈
 
 app.use(
  auth({
