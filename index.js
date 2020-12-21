@@ -65,17 +65,17 @@ app.use(
 
 app.get("/", async (req, res) => {
  try {
-   const summary = await axios.get(`${API_URL}/total`);  
-    res.render("home", {
-      user: req.oidc && req.oidc.user,
-      total: expenses.reduce((accum, expense) => accum + expense.value, 0),
-      count: expenses.length,
-    });
- }
- catch (err) {
-   next (err);
+   const summary = await axios.get(`${API_URL}/total`);
+   res.render("home", {
+     user: req.oidc && req.oidc.user,
+     total: summary.data.total,
+     count: summary.data.count,
+   });
+ } catch (err) {
+   next(err);
  }
 });
+
 
 // 👇 add requiresAuth middlware to these private routes  👇
 
