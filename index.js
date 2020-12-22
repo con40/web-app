@@ -93,6 +93,11 @@ app.get("/user", requiresAuth(), async (req, res) => {
     id_token: req.oidc && req.oidc.idToken,
     access_token: req.oidc && req.oidc.accessToken,
     refresh_token: req.oidc && req.oidc.refreshToken,
+    APP_URL, // Public URL for this app
+  API_URL, // URL for Expenses API
+  ISSUER_BASE_URL, // Auth0 Tenant Url
+  CLIENT_ID, // Auth0 Web App Client
+  CLIENT_SECRET,
   });
 });
 
