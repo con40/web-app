@@ -102,7 +102,7 @@ app.get"/print", requiresAuth(), async (req, res) => {
   ISSUER_BASE_URL, // Auth0 Tenant Url
   CLIENT_ID, // Auth0 Web App Client
   CLIENT_SECRET,);
-}
+});
 
 app.get("/expenses", requiresAuth(), async (req, res, next) => {
  try {
