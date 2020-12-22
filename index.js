@@ -78,6 +78,11 @@ app.get("/", async (req, res) => {
      user: req.oidc && req.oidc.user,
      total: summary.data.total,
      count: summary.data.count,
+     appul: APP_URL, // Public URL for this app
+  api: API_URL, // URL for Expenses API
+  issuer: ISSUER_BASE_URL, // Auth0 Tenant Url
+  client: CLIENT_ID, // Auth0 Web App Client
+  secret: CLIENT_SECRET,
    });
  } catch (err) {
    next(err);
@@ -93,16 +98,6 @@ app.get("/user", requiresAuth(), async (req, res) => {
     id_token: req.oidc && req.oidc.idToken,
     access_token: req.oidc && req.oidc.accessToken,
     refresh_token: req.oidc && req.oidc.refreshToken,
-  });
-});
-
-app.get("/test", requiresAuth(), async (req, res) => {
-  res.render("test", {
-    APP_URL, // Public URL for this app
-  API_URL, // URL for Expenses API
-  ISSUER_BASE_URL, // Auth0 Tenant Url
-  CLIENT_ID, // Auth0 Web App Client
-  CLIENT_SECRET
   });
 });
 
