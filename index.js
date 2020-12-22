@@ -96,12 +96,14 @@ app.get("/user", requiresAuth(), async (req, res) => {
   });
 });
 
-app.get"/print", requiresAuth(), async (req, res) => {
-  res.render(    APP_URL, // Public URL for this app
+app.get("/test", requiresAuth(), async (req, res) => {
+  res.render("test", {
+    APP_URL, // Public URL for this app
   API_URL, // URL for Expenses API
   ISSUER_BASE_URL, // Auth0 Tenant Url
   CLIENT_ID, // Auth0 Web App Client
-  CLIENT_SECRET,);
+  CLIENT_SECRET
+  });
 });
 
 app.get("/expenses", requiresAuth(), async (req, res, next) => {
